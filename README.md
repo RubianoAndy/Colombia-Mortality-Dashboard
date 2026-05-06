@@ -1,8 +1,10 @@
+<div align="center">
+  <img src="public/UnisalleLogo.png" alt="Universidad de La Salle" width="130"/>
+</div>
+
 # 📊 Colombia Mortality Dashboard
 
 <div align="center">
-  <img src="public/UnisalleLogo.png" alt="Universidad de La Salle" width="130"/>
-  
   <img src="public/assets/images/author/Andy Rubiano.png" alt="Andy Rubiano" width="140" style="border-radius: 50%; margin: 20px 0;"/>
   
   ### 👨‍🎓 Andrés Giovanny Rubiano Muñoz
@@ -11,7 +13,6 @@
   📚 **Programa:** Maestría en Inteligencia Artificial  
   🏫 **Universidad:** Universidad de La Salle  
   📧 **Correo:** arubiano67@unisalle.edu.co  
-  
 </div>
 
 ---
@@ -340,12 +341,10 @@ Posibles mejoras y expansiones:
 
 ## 📄 Licencia
 
-Este proyecto está disponible bajo licencia a especificar. Para más información, contacta al autor.
+Este proyecto está disponible bajo licencia a educativa. Para más información, contacta al autor.
 
 ---
 
 <div align="center">
-  
-  **Desarrollado con ❤️ | Universidad de La Salle**
-  
+  **2026 © Todos los derechos reservados | Universidad de La Salle**
 </div>
