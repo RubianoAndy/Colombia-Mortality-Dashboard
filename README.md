@@ -3,7 +3,8 @@
 <div align="center">
   <img src="public/UnisalleDarkLogoV1.png" alt="Universidad de La Salle" width="150"/>
   
-  **Autor:** Andy Rubiano  
+  **Autor:** Andrés Giovanny Rubiano Muñoz "Andy Rubiano"
+  **Correo:** arubiano67@unisalle.edu.co
   **Programa:** Maestría en Inteligencia Artificial
   
   <img src="public/assets/images/author/Andy Rubiano.png" alt="Andy Rubiano" width="150" style="border-radius: 50%; margin-top: 15px;"/>
