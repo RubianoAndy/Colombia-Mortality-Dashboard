@@ -119,9 +119,9 @@ total_homicidios    = len(homicidios)
 total_departamentos = df['COD_DEPARTAMENTO'].nunique()
 total_municipios    = df['COD_DANE'].nunique()
 
-SIDEBAR_BG          = '#1B2B3A'
-SIDEBAR_ACTIVE_BG   = '#F5C518'
-SIDEBAR_ACTIVE_TEXT = '#1B2B3A'
+SIDEBAR_BG          = '#002D57'
+SIDEBAR_ACTIVE_BG   = '#FFCD00'
+SIDEBAR_ACTIVE_TEXT = '#002D57'
 SIDEBAR_TEXT        = '#FFFFFF'
 SIDEBAR_MUTED       = '#7A99B8'
 
@@ -130,11 +130,11 @@ CARD_BG     = '#FFFFFF'
 CARD_BORDER = '#E1E5EE'
 SHADOW      = '0 2px 12px rgba(0,0,0,0.07)'
 
-TITLE_COLOR = '#1B2B3A'
+TITLE_COLOR = '#002D57'
 TEXT_COLOR  = '#3D4A5C'
 TEXT_MUTED  = '#94A3B8'
 
-GOLD   = '#F5C518'
+GOLD   = '#FFCD00'
 BLUE   = '#4472C4'
 ORANGE = '#ED7D31'
 RED    = '#C0392B'
