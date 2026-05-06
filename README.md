@@ -328,7 +328,7 @@ Posibles mejoras y expansiones:
 ## 📧 Contacto
 
 <div align="center">
-  <img src="public/UnisalleLogo.png" alt="Universidad de La Salle" width="220"/>
+  <img src="public/assets/images/author/Andy Rubiano.png" alt="Andy Rubiano" width="140" style="border-radius: 50%; margin: 20px 0;"/>
 
   **👨‍💼 Andrés Giovanny Rubiano Muñoz**  
   *Maestría en Inteligencia Artificial*
