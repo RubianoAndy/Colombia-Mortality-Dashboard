@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/UnisalleLogo.png" alt="Universidad de La Salle" width="130"/>
+  <img src="public/UnisalleLogo.png" alt="Universidad de La Salle" width="220"/>
 </div>
 
 # 📊 Colombia Mortality Dashboard
