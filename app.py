@@ -268,12 +268,12 @@ def nav_item(label, active=False):
         'cursor': 'pointer',
         'fontSize': '13px',
         'fontWeight': '700' if active else '400',
-        'borderRadius': '6px',
+        'borderRadius': '0',
         'margin': '3px 12px',
         'letterSpacing': '0.2px',
     })
 
-def kpi_card(icon, value, label, accent):
+def kpi_card(icon, value, label):
     return html.Div([
         html.Div(icon, style={'fontSize': '26px', 'marginBottom': '10px'}),
         html.Div(value, style={
@@ -286,9 +286,8 @@ def kpi_card(icon, value, label, accent):
         }),
     ], style={
         'backgroundColor': CARD_BG,
-        'borderRadius': '10px',
+        'borderRadius': '0',
         'border': f'1px solid {CARD_BORDER}',
-        'borderTop': f'4px solid {accent}',
         'padding': '20px 24px',
         'flex': '1',
         'boxShadow': SHADOW,
@@ -301,7 +300,7 @@ def card(children, flex=1, padding=False, min_w='0'):
         'flex': str(flex),
         'minWidth': min_w,
         'backgroundColor': CARD_BG,
-        'borderRadius': '10px',
+        'borderRadius': '0',
         'border': f'1px solid {CARD_BORDER}',
         'boxShadow': SHADOW,
         'overflow': 'hidden',
@@ -393,10 +392,10 @@ app.layout = html.Div([
 
         html.Div([
             html.Div([
-                kpi_card('📊', f'{total_muertes:,}',      'Total Defunciones',  BLUE),
-                kpi_card('⚠️',  f'{total_homicidios:,}',  'Homicidios (X95)',   RED),
-                kpi_card('🏛️', f'{total_departamentos}',  'Departamentos',      GOLD),
-                kpi_card('🏙️', f'{total_municipios}',     'Municipios',         GREEN),
+                kpi_card('📊', f'{total_muertes:,}',      'Total Defunciones'),
+                kpi_card('⚠️',  f'{total_homicidios:,}',  'Homicidios (X95)'),
+                kpi_card('🏛️', f'{total_departamentos}',  'Departamentos'),
+                kpi_card('🏙️', f'{total_municipios}',     'Municipios'),
             ], style={'display': 'flex', 'gap': '16px', 'marginBottom': '20px', 'flexWrap': 'wrap'}),
 
             card(dcc.Graph(figure=fig_map, config={'scrollZoom': True, 'displayModeBar': False}),
