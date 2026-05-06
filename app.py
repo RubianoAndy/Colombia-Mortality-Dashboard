@@ -155,7 +155,7 @@ def title_cfg(text):
 
 
 # FIG 1: Map — Distribución de muertes por departamento
-fig_map = px.scatter_mapbox(
+fig_map = px.scatter_map(
     dept_deaths, lat='LAT', lon='LON',
     size='Total_Muertes', color='Total_Muertes',
     hover_name='DEPARTAMENTO',
@@ -163,7 +163,7 @@ fig_map = px.scatter_mapbox(
     color_continuous_scale=['#C8E6FA', BLUE, '#0B3D6B'],
     size_max=50, zoom=4.5,
     center={'lat': 4.5, 'lon': -74},
-    mapbox_style='carto-positron',
+    map_style='carto-positron',
 )
 fig_map.update_layout(**BASE_LAYOUT,
     title=title_cfg('Distribución de Muertes por Departamento — Colombia 2019'),
