@@ -168,7 +168,7 @@ Asegúrate de tener:
 2. Selecciona tu repositorio
 3. Configura los siguientes parámetros:
 
-   - **Name**: `colombia-mortality-dashboard`
+   - **Name**: `mortalidad-en-colombia-ano-2019`
    - **Environment**: `Python`
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `gunicorn app:server`
@@ -183,7 +183,7 @@ Settings → Environment → Add Environment Variable
 
 - El deploy se inicia automáticamente cuando subes cambios a GitHub
 - Puedes visualizar logs en tiempo real desde el dashboard de Render
-- Tu aplicación estará disponible en: `https://tu-app.render.com`
+- Tu aplicación estará disponible en: https://mortalidad-en-colombia-ano-2019.onrender.com/
 
 #### 6. Monitoreo
 
