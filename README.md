@@ -328,13 +328,13 @@ Posibles mejoras y expansiones:
 ## 📧 Contacto
 
 <div align="center">
+  <img src="public/UnisalleLogo.png" alt="Universidad de La Salle" width="220"/>
 
-**👨‍💼 Andrés Giovanny Rubiano Muñoz**  
-*Maestría en Inteligencia Artificial*
+  **👨‍💼 Andrés Giovanny Rubiano Muñoz**  
+  *Maestría en Inteligencia Artificial*
 
-📧 **Correo:** arubiano67@unisalle.edu.co  
-🏫 **Universidad:** Universidad de La Salle
-
+  📧 **Correo:** arubiano67@unisalle.edu.co  
+  🏫 **Universidad:** Universidad de La Salle
 </div>
 
 ---
