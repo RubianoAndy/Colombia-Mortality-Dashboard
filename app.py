@@ -153,9 +153,6 @@ BASE_LAYOUT = dict(
 def title_cfg(text):
     return dict(text=text, font=dict(size=14, color=TITLE_COLOR, weight=600))
 
-# ============================================================
-# FIGURES  — mismas gráficas, nuevo diseño visual
-# ============================================================
 
 # FIG 1: Map — Distribución de muertes por departamento
 fig_map = px.scatter_mapbox(
@@ -258,13 +255,10 @@ fig_hist.update_layout(**BASE_LAYOUT,
     coloraxis_showscale=False,
 )
 
-# ============================================================
-# DASH APP
-# ============================================================
 app = dash.Dash(__name__, title='Mortalidad Colombia 2019', suppress_callback_exceptions=True)
 server = app.server
 
-# ── Helpers ──────────────────────────────────────────────────
+SIDEBAR_WIDTH = '220px'
 
 def nav_item(label, active=False):
     return html.Div(label, style={
@@ -316,14 +310,10 @@ def card(children, flex=1, padding=False, min_w='0'):
         style['padding'] = '20px'
     return html.Div(children, style=style)
 
-# ── Layout ───────────────────────────────────────────────────
-
 app.layout = html.Div([
 
-    # ══ SIDEBAR ══════════════════════════════════════════════
+    # SIDEBAR
     html.Div([
-
-        # Logo
         html.Div([
             html.Img(src=LOGO_SRC, style={
                 'width': '82%', 'maxWidth': '165px',
@@ -337,11 +327,11 @@ app.layout = html.Div([
                                              'letterSpacing': '1px', 'textAlign': 'center'}),
             ]),
         ], style={
-            'padding': '26px 16px 22px',
+            'padding': '20px 16px 18px',
             'borderBottom': '1px solid rgba(255,255,255,0.1)',
+            'flexShrink': '0',
         }),
 
-        # Author
         html.Div([
             html.Div([
                 html.Img(src=AUTHOR_SRC, style={
@@ -359,17 +349,31 @@ app.layout = html.Div([
                                                        'margin': '0', 'fontSize': '11px'}),
                 ]),
             ], style={'display': 'flex', 'alignItems': 'center'}),
-        ], style={'padding': '16px 20px', 'borderTop': '1px solid rgba(255,255,255,0.1)', 'marginTop': 'auto'}),
+        ], style={
+            'padding': '14px 20px',
+            'borderTop': '1px solid rgba(255,255,255,0.1)',
+            'marginTop': 'auto',
+            'flexShrink': '0',
+        }),
 
     ], style={
-        'width': '220px', 'minWidth': '220px',
+        'width': SIDEBAR_WIDTH,
+        'minWidth': SIDEBAR_WIDTH,
         'backgroundColor': SIDEBAR_BG,
-        'display': 'flex', 'flexDirection': 'column',
-        'height': '100vh', 'position': 'sticky', 'top': '0',
-        'overflowY': 'auto', 'fontFamily': FONT,
+        'display': 'flex',
+        'flexDirection': 'column',
+        'height': '100vh',
+        'position': 'fixed',
+        'top': '0',
+        'left': '0',
+        'zIndex': '100',
+        'overflowY': 'auto',
+        'overflowX': 'hidden',
+        'fontFamily': FONT,
+        'boxSizing': 'border-box',
     }),
 
-    # ══ MAIN CONTENT ═════════════════════════════════════════
+    # MAIN CONTENT
     html.Div([
 
         # Title banner
@@ -387,10 +391,7 @@ app.layout = html.Div([
             'boxShadow': '0 1px 4px rgba(0,0,0,0.05)', 'fontFamily': FONT,
         }),
 
-        # Scrollable content
         html.Div([
-
-            # ── KPI cards ────────────────────────────────────
             html.Div([
                 kpi_card('📊', f'{total_muertes:,}',      'Total Defunciones',  BLUE),
                 kpi_card('⚠️',  f'{total_homicidios:,}',  'Homicidios (X95)',   RED),
@@ -398,22 +399,18 @@ app.layout = html.Div([
                 kpi_card('🏙️', f'{total_municipios}',     'Municipios',         GREEN),
             ], style={'display': 'flex', 'gap': '16px', 'marginBottom': '20px', 'flexWrap': 'wrap'}),
 
-            # ── Mapa (ancho completo) ─────────────────────────
             card(dcc.Graph(figure=fig_map, config={'scrollZoom': True, 'displayModeBar': False}),
                  flex=1),
             html.Div(style={'marginBottom': '20px'}),
 
-            # ── Fila 2: Línea mensual + Barras violentas ─────
             html.Div([
                 card(dcc.Graph(figure=fig_line,    config={'displayModeBar': False}), flex=6),
                 card(dcc.Graph(figure=fig_violent, config={'displayModeBar': False}), flex=4),
             ], style={'display': 'flex', 'gap': '16px', 'marginBottom': '20px'}),
 
-            # ── Fila 3: Pie + Tabla causas ───────────────────
             html.Div([
                 card(dcc.Graph(figure=fig_pie, config={'displayModeBar': False}), flex=4),
 
-                # Tabla top 10 causas
                 card([
                     html.H3('Top 10 Causas de Muerte en Colombia 2019', style={
                         'color': TITLE_COLOR, 'fontSize': '14px', 'fontWeight': '600',
@@ -462,15 +459,12 @@ app.layout = html.Div([
 
             ], style={'display': 'flex', 'gap': '16px', 'marginBottom': '20px', 'alignItems': 'stretch'}),
 
-            # ── Fila 4: Stacked bar (ancho completo) ─────────
             card(dcc.Graph(figure=fig_stacked, config={'displayModeBar': False})),
             html.Div(style={'marginBottom': '20px'}),
 
-            # ── Fila 5: Histograma por edad (ancho completo) ──
             card(dcc.Graph(figure=fig_hist, config={'displayModeBar': False})),
             html.Div(style={'marginBottom': '20px'}),
 
-            # Footer
             html.Div([
                 html.P(
                     'Fuente: DANE — Estadísticas Vitales EEVV 2019  ·  Desarrollado con Python, Dash y Plotly',
@@ -482,17 +476,13 @@ app.layout = html.Div([
         ], style={'padding': '24px 32px'}),
 
     ], style={
-        'flex': '1',
+        'marginLeft': SIDEBAR_WIDTH,
         'backgroundColor': MAIN_BG,
-        'overflowY': 'auto',
-        'height': '100vh',
+        'minHeight': '100vh',
         'fontFamily': FONT,
     }),
 
 ], style={
-    'display': 'flex',
-    'height': '100vh',
-    'overflow': 'hidden',
     'fontFamily': FONT,
 })
 
