@@ -42,35 +42,45 @@ Este proyecto busca:
 Colombia-Mortality-Dashboard/
 ├── app.py                          # Aplicación principal Dash
 ├── requirements.txt                # Dependencias del proyecto
+├── gitignore                       # Reglas de exclusión de Git
 ├── README.md                       # Este archivo
 │
-├── public/                         # Archivos públicos
-│   ├── UnisalleDarkLogoV1.png     # Logo de la universidad
+├── public/                         # Recursos estáticos y visuales
+│   ├── UnisalleLogo.png            # Logo oficial Universidad de La Salle
+│   ├── UnisalleDarkLogoV1.png      # Variante oscura del logo (v1)
+│   ├── UnisalleDarkLogoV2.png      # Variante oscura del logo (v2)
 │   └── assets/
 │       └── images/
 │           └── author/
 │               └── Andy Rubiano.png # Foto del autor
 │
-└── utils/                          # Utilidades y datos
-    └── data/
-        ├── nofetal2019.csv        # Datos de mortalidad no fetal (2019)
-        ├── divipola.csv           # División política administrativa (departamentos y municipios)
-        └── codigos_muerte.csv     # Catálogo de códigos de causas de muerte (CIE-10)
+└── utils/                          # Utilidades, datos y capturas
+    ├── data/                       # Datasets del proyecto
+    │   ├── nofetal2019.csv         # Registros de mortalidad no fetal (2019)
+    │   ├── divipola.csv            # División política administrativa (DANE)
+    │   └── codigos_muerte.csv      # Catálogo de causas de muerte (CIE-10)
+    │
+    └── screenshots/                # Capturas de pantalla del dashboard
+        ├── Dashboard_1.png         # Panel principal: KPIs y mapa geográfico
+        ├── Dashboard_2.png         # Tendencia mensual, homicidios y causas
+        └── Dashboard_3.png         # Mortalidad por sexo y grupo de edad
 ```
 
 ### Descripción de Archivos Principales:
 
-- **app.py**: Contiene la lógica de la aplicación Dash, incluyendo:
+- **app.py**: Contiene la lógica completa de la aplicación Dash, incluyendo:
   - Carga y procesamiento de datos
   - Mapeos de códigos a nombres
   - Definición de categorías de edad
   - Generación de visualizaciones interactivas
-  
-- **utils/data/nofetal2019.csv**: Dataset principal con registros de mortalidad
-  
-- **utils/data/divipola.csv**: Información de divisiones administrativas para mapeo
 
-- **utils/data/codigos_muerte.csv**: Catálogo de clasificación de causas de muerte
+- **utils/data/nofetal2019.csv**: Dataset principal con registros de mortalidad no fetal en Colombia durante 2019
+
+- **utils/data/divipola.csv**: Base de datos de divisiones político-administrativas del DANE para mapeo de departamentos y municipios
+
+- **utils/data/codigos_muerte.csv**: Catálogo de Clasificación Internacional de Enfermedades (CIE-10) para identificación de causas de muerte
+
+- **utils/screenshots/**: Capturas del dashboard en funcionamiento, usadas en la documentación del proyecto
 
 ---
 
