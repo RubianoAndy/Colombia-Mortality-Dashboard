@@ -51,25 +51,24 @@ Colombia-Mortality-Dashboard/
 │   ├── UnisalleDarkLogoV2.png      # Variante oscura del logo (v2)
 │   └── assets/
 │       └── images/
-│           └── author/
-│               └── Andy Rubiano.png # Foto del autor
+│           ├── author/
+│           │   └── Andy Rubiano.png # Foto del autor
+│           └── screenshots/        # Capturas de pantalla del dashboard
+│               ├── Dashboard_1.png # Panel principal: KPIs y mapa geográfico
+│               ├── Dashboard_2.png # Tendencia mensual, homicidios y causas
+│               └── Dashboard_3.png # Mortalidad por sexo y grupo de edad
 │
-└── utils/                          # Utilidades, datos y capturas
+└── utils/                          # Utilidades y datos
     ├── raw/                        # Datos fuente originales (sin procesar)
     │   ├── Anexo1.NoFetal2019_CE_15-03-23.xlsx  # Archivo original de mortalidad no fetal
     │   ├── Anexo2.CodigosDeMuerte_CE_15-03-23.xlsx # Códigos de causas de muerte (fuente)
     │   ├── Divipola_CE_.xlsx       # División política administrativa (fuente)
     │   └── ddi-documentation-spanish-696.pdf    # Documentación técnica del dataset
     │
-    ├── data/                       # Datasets procesados listos para la app
-    │   ├── nofetal2019.csv         # Registros de mortalidad no fetal (2019)
-    │   ├── divipola.csv            # División política administrativa (DANE)
-    │   └── codigos_muerte.csv      # Catálogo de causas de muerte (CIE-10)
-    │
-    └── screenshots/                # Capturas de pantalla del dashboard
-        ├── Dashboard_1.png         # Panel principal: KPIs y mapa geográfico
-        ├── Dashboard_2.png         # Tendencia mensual, homicidios y causas
-        └── Dashboard_3.png         # Mortalidad por sexo y grupo de edad
+    └── data/                       # Datasets procesados listos para la app
+        ├── nofetal2019.csv         # Registros de mortalidad no fetal (2019)
+        ├── divipola.csv            # División política administrativa (DANE)
+        └── codigos_muerte.csv      # Catálogo de causas de muerte (CIE-10)
 ```
 
 ### Descripción de Archivos Principales:
@@ -88,7 +87,7 @@ Colombia-Mortality-Dashboard/
 
 - **utils/data/codigos_muerte.csv**: Catálogo de Clasificación Internacional de Enfermedades (CIE-10) para identificación de causas de muerte
 
-- **utils/screenshots/**: Capturas del dashboard en funcionamiento, usadas en la documentación del proyecto
+- **public/assets/images/screenshots/**: Capturas del dashboard en funcionamiento, usadas en la documentación del proyecto
 
 ---
 
@@ -215,7 +214,7 @@ Settings → Environment → Add Environment Variable
 
 ### Vista 1 — Panel Principal: KPIs y Mapa Geográfico
 
-![Dashboard 1 — Panel principal con indicadores clave y mapa de mortalidad por departamento](utils/screenshots/Dashboard_1.png)
+![Dashboard 1 — Panel principal con indicadores clave y mapa de mortalidad por departamento](public/assets/images/screenshots/Dashboard_1.png)
 
 Esta primera vista muestra el encabezado del dashboard con cuatro **indicadores clave (KPIs)** que resumen el panorama general de mortalidad en Colombia durante 2019:
 
@@ -230,7 +229,7 @@ Debajo de los KPIs se presenta el **mapa de burbujas geográfico** titulado *"Di
 
 ### Vista 2 — Tendencia Mensual, Homicidios, Ciudades con Menor Mortalidad y Top 10 Causas
 
-![Dashboard 2 — Gráficos de tendencia mensual, homicidios, ciudades con menor mortalidad y tabla de causas](utils/screenshots/Dashboard_2.png)
+![Dashboard 2 — Gráficos de tendencia mensual, homicidios, ciudades con menor mortalidad y tabla de causas](public/assets/images/screenshots/Dashboard_2.png)
 
 Esta vista agrupa cuatro visualizaciones complementarias:
 
@@ -265,7 +264,7 @@ Las enfermedades cardiovasculares y respiratorias dominan el registro, con el in
 
 ### Vista 3 — Mortalidad por Sexo y por Grupo de Edad
 
-![Dashboard 3 — Distribución de muertes por sexo en cada departamento y por grupo de edad](utils/screenshots/Dashboard_3.png)
+![Dashboard 3 — Distribución de muertes por sexo en cada departamento y por grupo de edad](public/assets/images/screenshots/Dashboard_3.png)
 
 Esta vista final desagrega la mortalidad en dos dimensiones demográficas clave:
 
