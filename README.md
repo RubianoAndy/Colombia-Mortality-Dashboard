@@ -195,83 +195,83 @@ Settings → Environment → Add Environment Variable
 
 ## 📊 Visualizaciones
 
-### 1. Mapa Geográfico de Mortalidad por Departamento
+### Vista 1 — Panel Principal: KPIs y Mapa Geográfico
 
-**Descripción:** Visualización de puntos geográficos que representa la distribución total de muertes por departamento en Colombia durante 2019.
+![Dashboard 1 — Panel principal con indicadores clave y mapa de mortalidad por departamento](utils/screenshots/Dashboard_1.png)
 
-**Características:**
-- Puntos proporcionados al número de casos de mortalidad
-- Coordenadas precisas de cada departamento
-- Hover interactivo para ver detalles
+Esta primera vista muestra el encabezado del dashboard con cuatro **indicadores clave (KPIs)** que resumen el panorama general de mortalidad en Colombia durante 2019:
 
-**Hallazgos:**
-- Concentración de mortalidad en regiones con mayor densidad poblacional
-- Variación significativa entre departamentos
-- Hotspots de mortalidad identificables geográficamente
+- **244,355** — Total de defunciones registradas en el año
+- **9,273** — Municipios con al menos un registro de mortalidad
+- **33** — Departamentos del país representados en los datos
+- **1,110** — Causas de muerte únicas identificadas según CIE-10
 
----
-
-### 2. Línea Temporal: Mortalidad por Mes
-
-**Descripción:** Gráfico de líneas que muestra la tendencia de mortalidad a lo largo de los 12 meses de 2019.
-
-**Características:**
-- Visualización mes a mes del total de casos
-- Identificación de picos y valles estacionales
-- Tendencia general observable
-
-**Hallazgos:**
-- Variaciones estacionales en tasas de mortalidad
-- Identificación de meses críticos
-- Patrones que pueden correlacionar con factores externos
+Debajo de los KPIs se presenta el **mapa de burbujas geográfico** titulado *"Distribución de Muertes por Departamento — Colombia 2019"*. Cada burbuja está posicionada sobre su departamento correspondiente y su tamaño es proporcional al número total de defunciones. La escala de color (azul claro a azul oscuro) refuerza visualmente la magnitud. Los departamentos con mayor carga de mortalidad, como Bogotá D.C., Antioquia y Valle del Cauca, destacan con burbujas notablemente más grandes, revelando la concentración de muertes en zonas de alta densidad poblacional.
 
 ---
 
-### 3. Ciudades más Violentas (Homicidios)
+### Vista 2 — Tendencia Mensual, Homicidios, Ciudades con Menor Mortalidad y Top 10 Causas
 
-**Descripción:** Gráfico de barras con las 5 ciudades que presentan mayor número de homicidios (códigos X95 en clasificación CIE-10).
+![Dashboard 2 — Gráficos de tendencia mensual, homicidios, ciudades con menor mortalidad y tabla de causas](utils/screenshots/Dashboard_2.png)
 
-**Características:**
-- Ranking de municipios por número de homicidios
-- Comparativa clara entre ciudades
-- Datos enfocados en violencia homicida
+Esta vista agrupa cuatro visualizaciones complementarias:
 
-**Hallazgos:**
-- Zonas de conflicto identificadas
-- Diferencias significativas entre municipios
-- Necesidad de intervenciones específicas en ciudades críticas
+**Total de Muertes por Mes — Colombia 2019 (gráfico de área)**  
+Muestra la evolución mensual del total de defunciones a lo largo del año. La línea se mantiene relativamente estable entre los 19,000 y 22,000 casos mensuales, con un leve descenso en febrero y una tendencia de recuperación hacia diciembre. Esto sugiere una mortalidad sostenida sin picos epidémicos extremos durante 2019.
+
+**5 Ciudades Más Violentas — Homicidios (Código X95)**  
+Gráfico de barras verticales que posiciona a Santiago de Cali en el primer lugar con **971 homicidios**, seguida de Bogotá D.C. (601), Medellín (428), Barranquilla (260) y San José de Cúcuta (206). La diferencia entre Cali y las demás ciudades es marcada, indicando una problemática de violencia armada significativamente mayor en esa ciudad.
+
+**10 Ciudades con Menor Índice de Mortalidad (gráfico de torta)**  
+Identifica los municipios con solo **1 defunción registrada** durante el año: Bituima, El Encanto, El Calvario, Puerto Alegría, San Fernando, Nuquí, Mapiripana, Hato, Margarita y Taraira. Todos con igual proporción en el gráfico, reflejan municipios de baja densidad poblacional o con subregistro en zonas rurales y fronterizas.
+
+**Top 10 Causas de Muerte en Colombia 2019 (tabla interactiva)**  
+Tabla ordenada por número de casos que clasifica las causas según códigos CIE-10:
+
+| # | Código | Causa | Casos |
+|---|--------|-------|-------|
+| 1 | I219 | Infarto agudo del miocardio, sin otra especificación | 35,088 |
+| 2 | J449 | Enfermedad pulmonar obstructiva crónica, no especificada | 7,210 |
+| 3 | J440 | EPOC con infección aguda de vías respiratorias inferiores | 6,445 |
+| 4 | J189 | Neumonía, no especificada | 5,798 |
+| 5 | C169 | Tumor maligno del estómago, parte no especificada | 5,125 |
+| 6 | C349 | Tumor maligno de bronquios o pulmón | 4,438 |
+| 7 | X954 | Agresión con disparo de armas de fuego en calles/carreteras | 4,396 |
+| 8 | C509 | Tumor maligno de la mama, parte no especificada | 3,619 |
+| 9 | C61 | Tumor maligno de la próstata | 3,437 |
+| 10 | I10 | Hipertensión esencial (primaria) | 3,317 |
+
+Las enfermedades cardiovasculares y respiratorias dominan el registro, con el infarto de miocardio como causa líder absoluta.
 
 ---
 
-### 4. Ciudades con Menor Mortalidad
+### Vista 3 — Mortalidad por Sexo y por Grupo de Edad
 
-**Descripción:** Gráfico de pastel (pie chart) que distribuye las 10 ciudades con menor tasa de mortalidad en 2019.
+![Dashboard 3 — Distribución de muertes por sexo en cada departamento y por grupo de edad](utils/screenshots/Dashboard_3.png)
 
-**Características:**
-- Visualización proporcional de casos
-- Identificación de municipios con mejor indicadores
-- Comparativa de distribución
+Esta vista final desagrega la mortalidad en dos dimensiones demográficas clave:
 
-**Hallazgos:**
-- Municipios con índices de salud más altos
-- Diferencias entre regiones rurales y urbanas
-- Posibles modelos a replicar
+**Total de Muertes por Sexo en Cada Departamento (barras apiladas)**  
+Gráfico de barras apiladas que muestra para cada uno de los 33 departamentos la proporción de muertes según sexo: **masculino (azul)**, **femenino (naranja)** e **indeterminado (amarillo)**. Antioquia y Bogotá D.C. lideran en volumen absoluto, superando los 30,000 casos combinados. En la mayoría de departamentos la mortalidad masculina supera a la femenina, patrón consistente con causas externas (violencia, accidentes) que afectan más a hombres. Departamentos como Vaupés y Vichada presentan valores muy bajos con escasa diferenciación por sexo.
 
----
+**Distribución de Muertes por Grupo de Edad (barras verticales)**  
+Visualiza el total de defunciones agrupado en las categorías epidemiológicas definidas por el proyecto:
 
-### 5. Tabla de Causas Principales de Muerte
+| Grupo de Edad | Total |
+|---------------|-------|
+| Mortalidad neonatal (0-28 días) | 4,520 |
+| Mortalidad infantil (29 días - 1 año) | 2,771 |
+| Primera infancia (1-2 años) | 1,518 |
+| Niñez (3-5 años) | 1,993 |
+| Adolescencia (6-11 años) | 3,795 |
+| Juventud (12-18 años) | 11,840 |
+| Adultez temprana (19-26 años) | 17,276 |
+| Adultez intermedia (27-59 años) | 29,105 |
+| Vejez (60-74 años) | **115,453** |
+| Longevidad / Centenarios (75+ años) | 56,061 |
+| Edad desconocida | 23 |
 
-**Descripción:** Tabla interactiva que lista las principales causas de mortalidad clasificadas según CIE-10.
-
-**Características:**
-- Ordenamiento por frecuencia
-- Códigos CIE-10 con descripciones
-- Total de casos por causa
-
-**Hallazgos:**
-- Causas naturales dominan el registro
-- Variación por grupo demográfico
-- Oportunidades de prevención identificadas
+El grupo de **vejez concentra casi la mitad de todas las defunciones** del año, lo que evidencia la carga de enfermedades crónicas en adultos mayores. La mortalidad neonatal (4,520 casos) es el indicador más crítico en los primeros años de vida y representa un área prioritaria de intervención en salud pública.
 
 ---
 
