@@ -55,7 +55,13 @@ Colombia-Mortality-Dashboard/
 │               └── Andy Rubiano.png # Foto del autor
 │
 └── utils/                          # Utilidades, datos y capturas
-    ├── data/                       # Datasets del proyecto
+    ├── raw/                        # Datos fuente originales (sin procesar)
+    │   ├── Anexo1.NoFetal2019_CE_15-03-23.xlsx  # Archivo original de mortalidad no fetal
+    │   ├── Anexo2.CodigosDeMuerte_CE_15-03-23.xlsx # Códigos de causas de muerte (fuente)
+    │   ├── Divipola_CE_.xlsx       # División política administrativa (fuente)
+    │   └── ddi-documentation-spanish-696.pdf    # Documentación técnica del dataset
+    │
+    ├── data/                       # Datasets procesados listos para la app
     │   ├── nofetal2019.csv         # Registros de mortalidad no fetal (2019)
     │   ├── divipola.csv            # División política administrativa (DANE)
     │   └── codigos_muerte.csv      # Catálogo de causas de muerte (CIE-10)
@@ -74,7 +80,9 @@ Colombia-Mortality-Dashboard/
   - Definición de categorías de edad
   - Generación de visualizaciones interactivas
 
-- **utils/data/nofetal2019.csv**: Dataset principal con registros de mortalidad no fetal en Colombia durante 2019
+- **utils/raw/**: Archivos fuente originales descargados del DANE, en formato Excel y PDF, antes de cualquier transformación o limpieza
+
+- **utils/data/nofetal2019.csv**: Dataset principal procesado con registros de mortalidad no fetal en Colombia durante 2019
 
 - **utils/data/divipola.csv**: Base de datos de divisiones político-administrativas del DANE para mapeo de departamentos y municipios
 
