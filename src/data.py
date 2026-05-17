@@ -1,4 +1,5 @@
 import os
+import json
 import base64
 import pandas as pd
 
@@ -75,6 +76,12 @@ dept_coords = {
     86: (1.15, -76.65),  88: (12.58, -81.72), 94: (2.58, -68.23),
     95: (2.57, -72.64),  97: (1.25, -70.23),  99: (4.44, -69.29),
 }
+
+with open(os.path.join(DATA_DIR, 'Colombia.geo.json'), encoding='utf-8') as _f:
+    colombia_geojson = json.load(_f)
+
+dept_codes = {str(feat['properties']['DPTO']): feat['properties']['NOMBRE_DPT']
+              for feat in colombia_geojson['features']}
 
 municipios_options = sorted([
     {'label': m, 'value': m}

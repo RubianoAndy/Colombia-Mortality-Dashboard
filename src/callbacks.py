@@ -8,7 +8,7 @@ from src.theme import (
     BLUE, RED, ORANGE, GOLD, GREEN, PURPLE,
     CARD_BORDER, SEX_COLORS,
 )
-from src.data import df, dept_coords, cod_map, cod3_map, cat_order
+from src.data import df, colombia_geojson, cod_map, cod3_map, cat_order
 
 def register_callbacks(app):
 
@@ -59,18 +59,21 @@ def register_callbacks(app):
         kpi_mun   = str(total_municipios)
 
         dept_deaths = dff.groupby(['COD_DEPARTAMENTO', 'DEPARTAMENTO']).size().reset_index(name='Total_Muertes')
-        dept_deaths['LAT'] = dept_deaths['COD_DEPARTAMENTO'].map(lambda x: dept_coords.get(x, (0, 0))[0])
-        dept_deaths['LON'] = dept_deaths['COD_DEPARTAMENTO'].map(lambda x: dept_coords.get(x, (0, 0))[1])
+        dept_deaths['DPTO'] = dept_deaths['COD_DEPARTAMENTO'].astype(str).str.zfill(2)
 
-        fig_map = px.scatter_map(
-            dept_deaths, lat='LAT', lon='LON',
-            size='Total_Muertes', color='Total_Muertes',
+        fig_map = px.choropleth_map(
+            dept_deaths,
+            geojson=colombia_geojson,
+            locations='DPTO',
+            featureidkey='properties.DPTO',
+            color='Total_Muertes',
             hover_name='DEPARTAMENTO',
-            hover_data={'Total_Muertes': True, 'LAT': False, 'LON': False},
+            hover_data={'Total_Muertes': True, 'DPTO': False},
             color_continuous_scale=['#C8E6FA', BLUE, '#0B3D6B'],
-            size_max=50, zoom=4.5,
+            zoom=4.5,
             center={'lat': 4.5, 'lon': -74},
             map_style='carto-positron',
+            opacity=0.75,
         )
         fig_map.update_layout(**BASE_LAYOUT,
             title=title_cfg('Distribución de Muertes por Departamento — Colombia 2019'),
