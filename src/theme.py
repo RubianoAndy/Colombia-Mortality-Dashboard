@@ -57,6 +57,7 @@ def title_cfg(text):
     dict
         Configuración de título con fuente, tamaño y color.
     """
+    
     return dict(text=text, font=dict(size=14, color=TITLE_COLOR, weight=600))
 
 
@@ -83,6 +84,7 @@ def kpi_card(icon, value, label, card_id=None):
     html.Div
         Componente Dash HTML con la tarjeta KPI estilizada.
     """
+
     return html.Div([
         html.Div(icon, style={'fontSize': '26px', 'marginBottom': '10px'}),
         html.Div(value, id=card_id, style={
@@ -106,6 +108,26 @@ def kpi_card(icon, value, label, card_id=None):
 
 
 def card(children, flex=1, padding=False, min_w='0'):
+    """
+    Envuelve contenido en un contenedor con estilo de tarjeta del dashboard.
+
+    Parámetros
+    ----------
+    children : any
+        Contenido Dash que se renderizará dentro de la tarjeta.
+    flex : int o float, opcional
+        Valor CSS flex para controlar el ancho relativo. Por defecto 1.
+    padding : bool, opcional
+        Si es True, aplica padding interno de 20px. Por defecto False.
+    min_w : str, opcional
+        Ancho mínimo CSS de la tarjeta (p. ej. '300px'). Por defecto '0'.
+
+    Retorna
+    -------
+    html.Div
+        Componente Dash HTML estilizado como tarjeta.
+    """
+
     style = {
         'flex': str(flex),
         'minWidth': min_w,
@@ -115,6 +137,7 @@ def card(children, flex=1, padding=False, min_w='0'):
         'boxShadow': SHADOW,
         'overflow': 'hidden',
     }
+
     if padding:
         style['padding'] = '20px'
     return html.Div(children, style=style)
