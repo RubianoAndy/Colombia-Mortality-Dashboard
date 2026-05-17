@@ -40,10 +40,17 @@ Este proyecto busca:
 
 ```
 Colombia-Mortality-Dashboard/
-├── app.py                          # Aplicación principal Dash
+├── app.py                          # Punto de entrada de la aplicación
 ├── requirements.txt                # Dependencias del proyecto
-├── gitignore                       # Reglas de exclusión de Git
+├── .gitignore                      # Reglas de exclusión de Git
 ├── README.md                       # Este archivo
+│
+├── src/                            # Módulos de la aplicación
+│   ├── data.py                     # Carga, limpieza y exposición de datos
+│   ├── layout.py                   # Estructura HTML/componentes del dashboard
+│   ├── callbacks.py                # Lógica reactiva e interactividad
+│   ├── dashboard.py                # Instancia principal de Dash
+│   └── theme.py                    # Paleta de colores y estilos globales
 │
 ├── public/                         # Recursos estáticos y visuales
 │   ├── UnisalleLogo.png            # Logo oficial Universidad de La Salle
@@ -54,7 +61,7 @@ Colombia-Mortality-Dashboard/
 │           ├── author/
 │           │   └── Andy Rubiano.png # Foto del autor
 │           └── screenshots/        # Capturas de pantalla del dashboard
-│               ├── Dashboard_1.png # Panel principal: KPIs y mapa geográfico
+│               ├── Dashboard_1.png # Panel principal: KPIs y mapa coroplético
 │               ├── Dashboard_2.png # Tendencia mensual, homicidios y causas
 │               └── Dashboard_3.png # Mortalidad por sexo y grupo de edad
 │
@@ -68,26 +75,27 @@ Colombia-Mortality-Dashboard/
     └── data/                       # Datasets procesados listos para la app
         ├── nofetal2019.csv         # Registros de mortalidad no fetal (2019)
         ├── divipola.csv            # División política administrativa (DANE)
-        └── codigos_muerte.csv      # Catálogo de causas de muerte (CIE-10)
+        ├── codigos_muerte.csv      # Catálogo de causas de muerte (CIE-10)
+        └── Colombia.geo.json       # Geometría GeoJSON de los 33 departamentos
 ```
 
 ### Descripción de Archivos Principales:
 
-- **app.py**: Contiene la lógica completa de la aplicación Dash, incluyendo:
-  - Carga y procesamiento de datos
-  - Mapeos de códigos a nombres
-  - Definición de categorías de edad
-  - Generación de visualizaciones interactivas
+- **app.py**: Punto de entrada minimalista; importa la instancia Dash desde `src/dashboard.py` y arranca el servidor en el puerto 8050.
 
-- **utils/raw/**: Archivos fuente originales descargados del DANE, en formato Excel y PDF, antes de cualquier transformación o limpieza
+- **src/data.py**: Carga y preprocesa todos los datasets (`nofetal2019.csv`, `divipola.csv`, `codigos_muerte.csv`, `Colombia.geo.json`), genera los mapeos de códigos a nombres y exporta las variables compartidas por los demás módulos.
 
-- **utils/data/nofetal2019.csv**: Dataset principal procesado con registros de mortalidad no fetal en Colombia durante 2019
+- **src/layout.py**: Define la estructura visual del dashboard (encabezado, KPIs, tarjetas de gráficos y tabla) usando componentes Dash y DCC.
 
-- **utils/data/divipola.csv**: Base de datos de divisiones político-administrativas del DANE para mapeo de departamentos y municipios
+- **src/callbacks.py**: Registra los callbacks reactivos que filtran datos y actualizan todas las visualizaciones en respuesta a los controles del usuario.
 
-- **utils/data/codigos_muerte.csv**: Catálogo de Clasificación Internacional de Enfermedades (CIE-10) para identificación de causas de muerte
+- **src/theme.py**: Centraliza la paleta de colores, estilos de tarjetas y configuraciones de layout reutilizables en los gráficos.
 
-- **public/assets/images/screenshots/**: Capturas del dashboard en funcionamiento, usadas en la documentación del proyecto
+- **utils/data/Colombia.geo.json**: Geometría GeoJSON con las fronteras exactas de los 33 departamentos de Colombia, utilizada para renderizar el mapa coroplético.
+
+- **utils/raw/**: Archivos fuente originales descargados del DANE, en formato Excel y PDF, antes de cualquier transformación o limpieza.
+
+- **public/assets/images/screenshots/**: Capturas del dashboard en funcionamiento, usadas en la documentación del proyecto.
 
 ---
 
@@ -223,7 +231,7 @@ Esta primera vista muestra el encabezado del dashboard con cuatro **indicadores 
 - **33** — Departamentos del país representados en los datos
 - **1,110** — Causas de muerte únicas identificadas según CIE-10
 
-Debajo de los KPIs se presenta el **mapa de burbujas geográfico** titulado *"Distribución de Muertes por Departamento — Colombia 2019"*. Cada burbuja está posicionada sobre su departamento correspondiente y su tamaño es proporcional al número total de defunciones. La escala de color (azul claro a azul oscuro) refuerza visualmente la magnitud. Los departamentos con mayor carga de mortalidad, como Bogotá D.C., Antioquia y Valle del Cauca, destacan con burbujas notablemente más grandes, revelando la concentración de muertes en zonas de alta densidad poblacional.
+Debajo de los KPIs se presenta el **mapa coroplético** titulado *"Distribución de Muertes por Departamento — Colombia 2019"*. Cada departamento se representa como un polígono con fronteras geográficas exactas, coloreado según la escala azul claro → azul oscuro en función del total de defunciones registradas. Los departamentos con mayor carga de mortalidad, como Bogotá D.C., Antioquia y Valle del Cauca, aparecen en tonos más oscuros, revelando de forma intuitiva la concentración de muertes en zonas de alta densidad poblacional.
 
 ---
 
