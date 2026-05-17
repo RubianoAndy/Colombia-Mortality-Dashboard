@@ -10,8 +10,24 @@ PUBLIC_DIR = os.path.join(_BASE_DIR, 'public')
 
 
 def encode_image(path):
-    if not os.path.exists(path):
-        return ''
+    """
+    Codifica una imagen en base64 para incrustarla en HTML.
+    
+    Lee el archivo de imagen de la ruta especificada, lo convierte a base64
+    y genera una cadena de datos de URI compatible con navegadores web.
+    
+    Parámetros
+    ----------
+    path : str
+        Ruta absoluta o relativa al archivo de imagen.
+    
+    Retorna
+    -------
+    str
+        Cadena de datos URI (data:image/[formato];base64,[datos]) o cadena vacía
+        si el archivo no existe.
+    """
+    
     with open(path, 'rb') as f:
         enc = base64.b64encode(f.read()).decode('ascii')
     ext = os.path.splitext(path)[1].lstrip('.').lower()

@@ -11,6 +11,18 @@ from src.theme import (
 from src.data import df, colombia_geojson, cod_map, cod3_map, cat_order
 
 def register_callbacks(app):
+    """
+    Registra todos los callbacks interactivos de la aplicación Dash.
+    
+    Configura las funciones callback que actualizan el dashboard en respuesta
+    a cambios en los filtros de municipio y mes, generando dinámicamente
+    KPIs, gráficos y tablas basados en los datos filtrados.
+    
+    Parámetros
+    ----------
+    app : dash.Dash
+        Instancia de la aplicación Dash.
+    """
 
     @app.callback(
         Output('filter-municipio', 'value'),
@@ -19,6 +31,22 @@ def register_callbacks(app):
         prevent_initial_call=True,
     )
     def clear_filters(_):
+        """
+        Limpia los filtros de municipio y mes.
+        
+        Callback activado al presionar el botón 'Limpiar filtros'.
+        Restablece los valores de ambos filtros a listas vacías.
+        
+        Parámetros
+        ----------
+        _ : int
+            Número de clics del botón (no se utiliza).
+        
+        Retorna
+        -------
+        tuple
+            Tupla con dos listas vacías para municipio y mes.
+        """
         return [], []
 
     @app.callback(
