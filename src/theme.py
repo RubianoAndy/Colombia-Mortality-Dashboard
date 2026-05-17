@@ -40,12 +40,49 @@ dd_style = {
 }
 dd_container_style = {'marginBottom': '18px'}
 
-
 def title_cfg(text):
+    """
+    Crea la configuración de título para gráficos de Plotly.
+    
+    Genera un diccionario con la configuración de fuente y color para títulos
+    de gráficos, asegurando consistencia de estilo en todo el dashboard.
+    
+    Parámetros
+    ----------
+    text : str
+        Texto del título del gráfico.
+    
+    Retorna
+    -------
+    dict
+        Configuración de título con fuente, tamaño y color.
+    """
     return dict(text=text, font=dict(size=14, color=TITLE_COLOR, weight=600))
 
 
 def kpi_card(icon, value, label, card_id=None):
+    """
+    Crea una tarjeta KPI (Indicador Clave de Rendimiento) con ícono, valor y etiqueta.
+    
+    Construye un componente HTML que muestra un KPI con un ícono emoji, un valor
+    numérico grande y una etiqueta descriptiva, con estilos consistentes.
+    
+    Parámetros
+    ----------
+    icon : str
+        Ícono o emoji a mostrar en la tarjeta.
+    value : str o int
+        Valor numérico del KPI.
+    label : str
+        Etiqueta descriptiva del KPI.
+    card_id : str, opcional
+        ID HTML para el elemento del valor (permite actualización dinámica).
+    
+    Retorna
+    -------
+    html.Div
+        Componente Dash HTML con la tarjeta KPI estilizada.
+    """
     return html.Div([
         html.Div(icon, style={'fontSize': '26px', 'marginBottom': '10px'}),
         html.Div(value, id=card_id, style={
