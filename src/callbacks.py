@@ -69,6 +69,40 @@ def register_callbacks(app):
     )
 
     def update_all(sel_municipios, sel_meses):
+        """
+        Actualiza todos los componentes del dashboard según los filtros activos.
+
+        Filtra el DataFrame global por municipio y mes, recalcula los KPIs y
+        regenera cada figura y tabla de la interfaz.
+
+        Parámetros
+        ----------
+        sel_municipios : list[str]
+            Lista de nombres de municipios seleccionados. Lista vacía indica
+            sin filtro.
+        sel_meses : list[int]
+            Lista de números de mes seleccionados (1–12). Lista vacía indica
+            sin filtro.
+
+        Retorna
+        -------
+        tuple
+            Tupla de 12 elementos en el siguiente orden:
+
+            - kpi_total (str): Total de muertes formateado con comas.
+            - kpi_hom (str): Total de homicidios (CIE-10 X95) formateado.
+            - kpi_dept (str): Número de departamentos con registros.
+            - kpi_mun (str): Número de municipios con registros.
+            - fig_map (go.Figure): Mapa coroplético de muertes por departamento.
+            - fig_line (go.Figure): Serie de tiempo de muertes mensuales.
+            - fig_violent (go.Figure): Top 5 ciudades con más homicidios.
+            - fig_pie (go.Figure): Pie de las 10 ciudades con menor mortalidad.
+            - table_data (list[dict]): Registros para la tabla de causas de muerte.
+            - tooltip_data (list[dict]): Tooltips asociados a la tabla de causas.
+            - fig_stacked (go.Figure): Barras apiladas de muertes por sexo y departamento.
+            - fig_hist (go.Figure): Distribución de muertes por grupo de edad.
+        """
+        
         dff = df.copy()
         if sel_municipios:
             dff = dff[dff['MUNICIPIO'].isin(sel_municipios)]
