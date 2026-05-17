@@ -13,10 +13,16 @@ SIDEBAR_WIDTH = '240px'
 layout = html.Div([
     html.Div([
         html.Div([
-            html.Img(src=LOGO_SRC, style={
-                'width': '82%', 'maxWidth': '165px',
-                'display': 'block', 'margin': '0 auto',
-            }) if LOGO_SRC else html.Div([
+            html.A(
+                href='https://lasalle.edu.co/',
+                target='_blank',
+                rel='noopener noreferrer',
+                style={'cursor': 'pointer', 'display': 'block'},
+                children=html.Img(src=LOGO_SRC, style={
+                    'width': '82%', 'maxWidth': '165px',
+                    'display': 'block', 'margin': '0 auto',
+                })
+            ) if LOGO_SRC else html.Div([
                 html.P('UNIVERSIDAD', style={'color': SIDEBAR_TEXT, 'fontSize': '11px',
                                              'margin': '0', 'fontWeight': '700',
                                              'letterSpacing': '1px', 'textAlign': 'center'}),
@@ -124,7 +130,7 @@ layout = html.Div([
                 html.Div([
                     html.P('Andy Rubiano', style={'color': SIDEBAR_TEXT, 'margin': '0',
                                                   'fontSize': '13px', 'fontWeight': '600'}),
-                    html.P('Analista de Datos', style={'color': SIDEBAR_MUTED,
+                    html.P('Analista de datos', style={'color': SIDEBAR_MUTED,
                                                        'margin': '0', 'fontSize': '11px'}),
                 ]),
             ], style={'display': 'flex', 'alignItems': 'center'}),
@@ -158,7 +164,7 @@ layout = html.Div([
                 'margin': '0', 'fontSize': '22px', 'fontWeight': '800',
                 'color': TITLE_COLOR, 'letterSpacing': '0.8px',
             }),
-            html.P('Por Andy Rubiano  ·  Fuente: DANE — Estadísticas Vitales EEVV', style={
+            html.P('Por Andy Rubiano | Fuente: DANE — Estadísticas Vitales EEVV', style={
                 'color': TEXT_MUTED, 'margin': '5px 0 0 0', 'fontSize': '13px',
             }),
         ], style={
