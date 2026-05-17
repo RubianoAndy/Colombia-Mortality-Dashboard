@@ -341,7 +341,6 @@ Posibles mejoras y expansiones:
 
 - [ ] Agregar datos de años adicionales para análisis longitudinal
 - [ ] Implementar predicciones con Machine Learning
-- [ ] Añadir filtros avanzados y búsqueda
 - [ ] Generar reportes exportables en PDF
 - [ ] Análisis por causas prevenibles
 - [ ] Integración con APIs de datos en tiempo real
