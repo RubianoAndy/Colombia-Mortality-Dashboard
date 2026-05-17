@@ -27,7 +27,7 @@ def encode_image(path):
         Cadena de datos URI (data:image/[formato];base64,[datos]) o cadena vacía
         si el archivo no existe.
     """
-    
+
     with open(path, 'rb') as f:
         enc = base64.b64encode(f.read()).decode('ascii')
     ext = os.path.splitext(path)[1].lstrip('.').lower()

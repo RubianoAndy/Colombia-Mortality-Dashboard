@@ -11,7 +11,6 @@ from src.data import LOGO_SRC, AUTHOR_SRC, municipios_options, meses_options
 SIDEBAR_WIDTH = '240px'
 
 layout = html.Div([
-
     html.Div([
         html.Div([
             html.Img(src=LOGO_SRC, style={
